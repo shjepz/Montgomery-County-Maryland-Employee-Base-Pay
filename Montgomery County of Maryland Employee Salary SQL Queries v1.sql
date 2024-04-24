@@ -91,6 +91,16 @@ SELECT ROUND(SUM(base_pay),0) AS All_Employee_Base_Pay_for_2016Q4
 FROM Employee_Payroll$
 WHERE Fiscal_Period = '2016Q4'
 
+-- Query created to transfer new table to Excel to be uploaded to Tableau 
+
+SELECT fiscal_year, fiscal_quarter,
+CONCAT(first_name, ' ', Middle_Initial, ' ', last_name) AS full_name,
+Bureau, Office_Name, Job_Title, LEFT(Employee_Identifier,8) AS Employee_ID, Fiscal_Year,
+Base_Pay, LEFT(Original_Hire_Date,11) AS Original_Hire_Date
+FROM Employee_Payroll$
+WHERE fiscal_year IN (2016,2017);
+
+
 
 
 
